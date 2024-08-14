@@ -34,7 +34,7 @@ This will start the development server and open your project in the default web 
 
 ## Required Imports
 
-At the top of your main JavaScript file (usually `src/index.js`), include the following imports:
+At the top of your main JavaScript file (usually `src/main.js`), include the following imports:
 
 ```javascript
 import * as THREE from "three";
@@ -50,11 +50,11 @@ Here's a brief overview of the project structure:
 ```
 ├── src
 │   ├── main.js        // Main entry point
-│   ├── models         // 3D objects and models
-│   └── assets         // Textures, images, and other assets (if necesarry)
-├── public
 │   ├── index.html     // HTML file to host the project
 │   └── styles.css     // CSS styles
+├── public
+│   ├── models         // 3D objects and models
+│   └── assets         // Textures, images, and other assets (if necesarry)
 └── package.json       // Project metadata and dependencies
 ```
 
