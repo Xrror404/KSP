@@ -161,6 +161,7 @@ async function loadModels(){
 Here's how to make the camera's movement using keyboard control:
 
 ```javascript
+// Set the object for keyboard control first
 const keyboardControls = {
   w: false,
   a: false,
@@ -168,6 +169,7 @@ const keyboardControls = {
   d: false,
 };
 
+// Setting up an event for each object if the keyboard is pressed down
 function onKeyDown(event) {
   switch (event.code) {
     case "KeyW":
@@ -185,6 +187,7 @@ function onKeyDown(event) {
   }
 }
 
+// Setting up an event for each object if the keyboard is being let go
 function onKeyUp(event) {
   switch (event.code) {
     case "KeyW":
@@ -201,6 +204,55 @@ function onKeyUp(event) {
       break;
   }
 }
+
+document.addEventListener("keydown", onKeyDown); // Adding the keyDown event
+document.addEventListener("keyup", onKeyUp); // Adding the keyUp event
+```
+
+Here's how to animate the models:
+
+```javascript
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Animate whatever models you want here...
+
+  if (sun) {
+    sun.rotation.x += 0.1;
+  }
+
+  const moveVector = new THREE.Vector3();
+  if (keyboardControls.w) {
+    moveVector.z -= 0.1;
+    if (camera.position.y != -0.1) {
+      moveVector.z = 0;
+      camera.position.position.y = 15;
+    }
+  }
+
+  if (keyboardControls.s) {
+    moveVector.z += 0.1;
+    if (marsRover.position.y != -0.1) {
+      moveVector.z = 0;
+      camera.position.y = 15;
+    }
+  }
+
+  if (keyboardControls.a) {
+    moveVector.x -= 0.1;
+  }
+
+  if (keyboardControls.d) {
+    moveVector.x += 0.1;
+  }
+
+  moveVector.applyQuaternion(camera.quaternion);
+  camera.position.add(moveVector);
+
+  renderer.render(scene, camera);
+}
+
+animate();
 ```
 
 ## Example Code
