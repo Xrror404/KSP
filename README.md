@@ -38,8 +38,8 @@ At the top of your main JavaScript file (usually `src/main.js`), include the fol
 
 ```javascript
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls.js"; // Optional, but better for camera control
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"; // For loading the model
+import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls.js"; // For camera control using pointer
 ```
 
 This imports the Three.js library, which is essential for creating and rendering 3D scenes.
@@ -49,13 +49,11 @@ This imports the Three.js library, which is essential for creating and rendering
 Here's a brief overview of the project structure:
 
 ```
-├── src
-│   ├── main.js        // Main entry point
-│   ├── index.html     // HTML file to host the project
-│   └── styles.css     // CSS styles
 ├── public
 │   ├── models         // 3D objects and models
 │   └── assets         // Textures, images, and other assets (if necesarry)
+├── main.js            // Main entry point
+├── index.html         // HTML file to host the project
 └── package.json       // Project metadata and dependencies
 ```
 
